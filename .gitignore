@@ -1,0 +1,7 @@
+*.bak
+*.pyc
+*.swp
+*.mo
+*.bzrignore
+*.odt#*
+*__pycache__/*
