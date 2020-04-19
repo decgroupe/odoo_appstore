@@ -36,7 +36,7 @@ body {
 }
 
 .o_loading {
-    background-color: $brand-primary;
+    background-color: $brand-secondary;
 }
 
 .o_main_navbar {
@@ -195,7 +195,7 @@ oe_highlight {
 
 .datepicker .table-sm > tbody > tr > td.active, .datepicker .table-sm > tbody > tr > td .active {
     background-color: $brand-primary;
-	border-radius: 0;
+    border-radius: 0;
 }
 
 // Filter search label
@@ -273,9 +273,9 @@ textarea, select, .o_form_view.o_form_editable .o_form_field_many2manytags,
 }
 
 .input-group-text {
-	background-color: transparent;
-	color: #fff;
-	border: 0px;
+    background-color: transparent;
+    color: #fff;
+    border: 0px;
 }
 
 // Listview
@@ -359,7 +359,7 @@ textarea, select, .o_form_view.o_form_editable .o_form_field_many2manytags,
 // App Dashboard
 
 .o_menu_apps .dropdown-menu.show {
-	background: transparent url('/dashboard') no-repeat scroll center center / cover;
+    background: transparent url('/dashboard') no-repeat scroll center center / cover;
 
 }
 
@@ -375,20 +375,20 @@ textarea, select, .o_form_view.o_form_editable .o_form_field_many2manytags,
 }
 
 .o-app-name {
-	color: #fff;
+    color: #fff;
     font-size: 15px;
     font-weight: 400;
     text-overflow: ellipsis;
     white-space: nowrap;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
 }
 
 .o_menu_apps .dropdown-menu.show .o-app-icon {
-	padding: 20px 0 0;
+    padding: 20px 0 0;
 }
 
 .o_menu_apps .dropdown-menu.show .o-app-icon:hover {
-	box-shadow: 0 8px 15px -10px black;
+    box-shadow: 0 8px 15px -10px black;
     transform: translateY(-1px);
 }
 
@@ -397,11 +397,11 @@ textarea, select, .o_form_view.o_form_editable .o_form_field_many2manytags,
 }
 
 .o-menu-search-result {
-	color: #fff;
+    color: #fff;
 }
 
 // Chat window
 
 .o_thread_window .o_thread_window_header {
-	background-color: $brand-primary;
+    background-color: $brand-primary;
 }
