@@ -3,15 +3,16 @@
 
 /* App Sidebar Panel */
 
-$odoo-sidebar-width: 180px;
+$odoo-sidebar-width: 35px;
 
 .app-sidebar-panel {
     flex: 0 0 $odoo-sidebar-width;	
-    background-color: $gray-base;
+    transition: flex 0.8s 0.1s;
+    background-color: #0e0a1d;
     height: 100% !important;
     overflow-y: auto;
     @media (max-width: 768px) {
-      display: none;
+        display: none;
     }
 }
 
@@ -21,9 +22,10 @@ $odoo-sidebar-width: 180px;
     }
 } */
 
-//.app-sidebar-panel:hover {
-//    @include o-flex(0, 0, $odoo-sidebar-width);
-//}
+.app-sidebar-panel:hover {
+    flex: 0 0 170px;
+    transition: flex 1.2s;
+}
 
 .app-sidebar {
     white-space: nowrap;
@@ -42,9 +44,9 @@ $odoo-sidebar-width: 180px;
             position: relative;
             margin: 0;
             border: 0px;
-            padding: 8px 15px;
+            padding: 6px 6px;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 300;
             color: $gray-lighter;
             overflow: hidden;
@@ -52,7 +54,7 @@ $odoo-sidebar-width: 180px;
         }
     }
         > li:hover > a{
-        background: darken(#0099ff, 15%);
+        background: $gray-base;
         color: #fff;
         }
     }
