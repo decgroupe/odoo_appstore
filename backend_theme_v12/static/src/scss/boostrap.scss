@@ -1,6 +1,6 @@
-
 .nav-tabs {
     font-weight: bold;
+
     .nav-link.active {
         background-color: #f8f8f8;
     }
@@ -18,6 +18,10 @@ div .o_statusbar_buttons {
     }
 }
 
-.table-striped > tbody > tr:hover {
+.table-striped>tbody>tr:hover {
     background-color: rgba(0, 0, 0, 0.1);
-  }
+}
+
+.text-muted {
+    color: $text-muted !important;
+}
