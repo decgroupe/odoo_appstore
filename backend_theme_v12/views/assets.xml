@@ -8,8 +8,12 @@
 
 <odoo>
     <data>
-        <template id="assets_backend" name="Openworx Backend Theme" inherit_id="web.assets_backend">
+        <template id="assets_backend" name="Openworx Backend Theme" inherit_id="web.assets_backend">            
+            <xpath expr="link[1]" position="before">
+                <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/bootstrap_overridden.scss"/>
+            </xpath>
             <xpath expr=".">
+                
                 <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/style.scss"/>
                 <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/sidebar.scss"/>  
                 <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/boostrap.scss"/>
