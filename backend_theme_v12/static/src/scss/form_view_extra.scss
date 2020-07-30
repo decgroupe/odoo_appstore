@@ -1,0 +1,27 @@
+.o_form_view {
+
+    @include media-breakpoint-up(xl) {
+        .oe_button_box {
+            width: 45%;
+        }
+    }
+
+    .oe_button_box {
+        .oe_stat_button {
+
+            .o_stat_info,
+            >span {
+                > .o_stat_value, > .o_stat_text {
+                    font-size: smaller;
+                }
+                .o_stat_text {
+                    font-size: smaller;
+                }
+            }
+
+            >span {
+                font-size: smaller;
+            }
+        }
+    }
+}
