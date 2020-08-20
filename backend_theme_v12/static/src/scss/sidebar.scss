@@ -12,6 +12,12 @@ $odoo-sidebar-width: 35px;
     height: 100% !important;
     overflow-y: auto;
 
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+        width: 8px;
+        background: transparent; /* Chrome/Safari/Webkit */
+      }
+
     @media (max-width: 768px) {
         display: none;
     }
