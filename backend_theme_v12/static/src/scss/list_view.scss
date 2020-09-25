@@ -21,3 +21,12 @@
 .o_list_view .text-warning {
     color: #e16e09 !important;
 }
+
+.o_list_view {
+
+    .o_list_record_selector {
+        padding-left: 16px;
+        width: 1px;  // to prevent the column to expand
+    }
+
+}
