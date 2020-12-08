@@ -1,0 +1,16 @@
+.o_progressbar {
+
+    .o_progress {
+        border-color: #cecece;
+
+        &.o_progress_overflow {
+            background-color: $o-brand-secondary;
+        }
+
+        .o_progressbar_complete {
+            background-color: $o-brand-primary;
+            height: 100%;
+        }
+    }
+
+}

@@ -24,6 +24,11 @@ $brand-primary: #875a7b;
 $brand-secondary: #00A09D;
 //------------------------
 
+// odoo/addons/web/static/src/scss/primary_variables.scss
+$o-community-color: $brand-primary;
+$o-brand-odoo: $o-community-color;
+$o-brand-primary: $o-community-color;
+
 
 $brand-primary-dark: darken($brand-primary, 10%);
 $brand-secondary-dark: darken($brand-secondary, 10%);
