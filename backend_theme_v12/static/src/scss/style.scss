@@ -4,14 +4,26 @@
 
 @font-face {
     font-family: Roboto;
-    font-weight: normal;
-    src: url(/backend_theme_v12/static/src/font/Roboto-Regular.ttf)
+    font-weight: 800;
+    src: url(/backend_theme_v12/static/src/font/Roboto-Black.ttf)
 }
 
 @font-face {
     font-family: Roboto;
-    font-weight: bold;
+    font-weight: bold;  //700
     src: url(/backend_theme_v12/static/src/font/Roboto-Bold.ttf)
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: 500;
+    src: url(/backend_theme_v12/static/src/font/Roboto-Medium.ttf)
+}
+
+@font-face {
+    font-family: Roboto;
+    font-weight: normal; //400
+    src: url(/backend_theme_v12/static/src/font/Roboto-Regular.ttf)
 }
 
 @font-face {
