@@ -324,11 +324,16 @@ textarea, select, .o_form_view.o_form_editable .o_form_field_many2manytags,
 .o_list_view.table thead > tr > th.o_column_sortable:hover {
     background-color: #D6D6D3;
 }
- 
+
 .o_list_view.table tbody tr.o_group_header {
     background-color: #dfdfdf;
     background-image: none;
     border-top: 1px solid #e2e2e0;
+}
+
+.o_list_view.table tbody tr.o_group_header:hover {
+    background-color: #cacaca;
+    border-bottom: 2px solid #c2c2c2;
 }
 
 .table-striped > tbody > tr:nth-of-type(2n+1) {
