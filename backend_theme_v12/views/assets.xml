@@ -12,6 +12,7 @@
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/form_view.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/form_view_extra.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/list_view.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/kanban_view.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/fields_extra.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/webclient_extra.scss"/>
             <script type="application/javascript" src="/backend_theme_v12/static/src/js/sidebar.js"/>
