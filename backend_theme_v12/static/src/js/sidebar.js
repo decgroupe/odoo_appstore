@@ -30,13 +30,15 @@ odoo.define('backend_theme_v12.Sidebar', function (require) {
             if (session.debug == false) $(this).attr('href', $.delDebug(url));
         });
         $("#sidebar a").click(function () {
-            var img = $(this).children('.app-sidebar-menuitem')
+            var img = $(this).children('.app-sidebar-menuitem');
             img.removeClass('app-sidebar-menuitem-wait');
             img.addClass('app-sidebar-menuitem-active');
             setTimeout(function () {
                 img.removeClass('app-sidebar-menuitem-active');
                 img.addClass('app-sidebar-menuitem-wait');
             }, 3000);
+            var favicon_link = $("[rel='shortcut icon']");
+            favicon_link.attr("href" , img.attr("src"));
         });
     });
 });
