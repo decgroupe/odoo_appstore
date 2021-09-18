@@ -1,23 +1,39 @@
 # See LICENSE file for full copyright and licensing details.
 
 from odoo.tools import ustr
-from odoo import api, fields, models, _
+from odoo import api, fields, models, _, registry
 
 
 class BaseModuleData(models.TransientModel):
     _name = "base.module.data"
     _description = "Base Module Data"
 
+
+    @api.model
+    def _get_last_wizard(self):
+        return self.env['base.module.data'].search(
+            [], limit=1, order='id desc'
+        )
     @api.model
     def _get_default_objects(self):
+        wizard_id = self._get_last_wizard()
+        if wizard_id:
+            return wizard_id.objects
         names = ('ir.ui.view', 'ir.ui.menu', 'ir.model', 'ir.model.fields',
                  'ir.model.access', 'res.partner', 'res.partner.category',
                  'workflow', 'workflow.activity', 'workflow.transition',
                  'ir.actions.server', 'ir.server.object.lines')
         return self.env['ir.model'].search([('model', 'in', names)])
+    @api.model
+
+    def _get_default_check_date(self):
+        wizard_id = self._get_last_wizard()
+        if wizard_id:
+            return wizard_id.check_date
+        return fields.Datetime.now
 
     check_date = fields.Datetime(string='Record from Date', required=True,
-                                 default=fields.Datetime.now)
+                                 default=_get_default_check_date)
     objects = fields.Many2many('ir.model', 'base_module_record_model_rel',
                                'objects',
                                'model_id', string='Objects',
@@ -58,6 +74,7 @@ class BaseModuleData(models.TransientModel):
                     if not obj_pool._auto:
                         continue
             search_ids = obj_pool.search(search_condition)
+            search_ids.ensure_human_xml_id()
             for s_id in search_ids:
                 dbname = self.env.cr.dbname
                 args = (dbname, self.env.user.id, obj_name,
