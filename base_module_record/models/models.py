@@ -14,7 +14,10 @@ class BaseModel(models.BaseModel):
         try:
             rec_name = self[self._rec_name] or ''
             name = list(
-                filter(lambda x: x in string.ascii_letters, rec_name.lower())
+                filter(
+                    lambda x: x in string.ascii_letters + string.digits,
+                    rec_name.lower()
+                )
             )
             name = ''.join(name)
         except:
@@ -26,10 +29,11 @@ class BaseModel(models.BaseModel):
         return "%s_%s" % (self._table, name)
 
     def ensure_human_xml_id(self, skip=False):
-        """ Create missing external ids for records in ``self``, and return an
+        """ Improved version of `__ensure_xml_id` from `./odoo/odoo/models.py`
+            Create missing external ids for records in ``self``, and return an
             iterator of pairs ``(record, xmlid)`` for the records in ``self``.
 
-        :rtype: Iterable[Model, str | None]
+            :rtype: Iterable[Model, str | None]
         """
         if skip:
             return ((record, None) for record in self)
@@ -52,7 +56,7 @@ class BaseModel(models.BaseModel):
             SELECT res_id, module, name
             FROM ir_model_data
             WHERE model = %s AND res_id in %s
-        """, (self._name, tuple(self.ids))
+            """, (self._name, tuple(self.ids))
         )
         xids = {
             res_id: (module, name)
