@@ -44,7 +44,11 @@ class BaseModuleRecord(models.Model):
 
     # To Be Improved
     @api.model
-    def _create_id(self, model, data):
+    def _create_id(self, model, data, id=False):
+        if id:
+            xml_id = self._get_id(model, id)
+            if xml_id:
+                return xml_id[0]
         id_indx = 0
         while True:
             try:
@@ -80,8 +84,8 @@ class BaseModuleRecord(models.Model):
         data_pool = self.env['ir.model.data']
         model_pool = self.env[model]
         record = doc.createElement('record')
-        record.setAttribute("id", record_id)
         record.setAttribute("model", model)
+        record.setAttribute("id", record_id)
         record_list = [record]
         lids = data_pool.search([('model', '=', model)])
         lids = lids[:1]
@@ -95,6 +99,8 @@ class BaseModuleRecord(models.Model):
             depends[res[0]['module']] = True
         fields = model_pool.fields_get()
         for key, val in data.items():
+            if key in DEFAULT_FIELDS:
+                continue
             # functional fields check
             if (key in model_pool._fields.keys() and not
                     model_pool._fields[key].store):
@@ -138,7 +144,7 @@ class BaseModuleRecord(models.Model):
                             'name') not in DEFAULT_FIELDS:
                         if valitem[0] == 0:
                             newid = self._create_id(fields[key]['relation'],
-                                                    valitem[2])
+                                                    valitem[2], valitem[2].get('id'))
                             valitem[1] = newid
                         else:
                             newid, update = self.\
@@ -189,10 +195,7 @@ class BaseModuleRecord(models.Model):
         obj = self.env[model]
         data = obj.browse([id][0]).read([])
         if isinstance(data, list):
-            del data[0]['id']
             data = data[0]
-        else:
-            del data['id']
         mod_fields = obj.fields_get()
         for key in data.keys():
             if key in result:
@@ -279,7 +282,7 @@ class BaseModuleRecord(models.Model):
             rec_data = [(recording_data[0][0], rec, recording_data[0][2],
                          recording_data[0][3])]
             recording_data = rec_data
-            id = self._create_id(rec[2], rec[5])
+            id = self._create_id(rec[2], rec[5], rec[4])
             record, noupdate = self._create_record(doc, rec[2], rec[5], id)
             self.blank_dict[(rec[2], result)] = id
             record_list += record
