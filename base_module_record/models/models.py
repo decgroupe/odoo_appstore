@@ -5,6 +5,7 @@ import psycopg2, psycopg2.extensions
 
 from odoo import models
 
+MODENAME = "xml_export"
 
 class BaseModel(models.BaseModel):
     _inherit = 'base'
@@ -25,7 +26,7 @@ class BaseModel(models.BaseModel):
         if name:
             name = "%d__%s" % (self.id, name)
         else:
-            name = uuid.uuid4().hex[:8]
+            name = '_' + uuid.uuid4().hex[:8]
         return "%s_%s" % (self._table, name)
 
     def ensure_human_xml_id(self, skip=False):
@@ -48,8 +49,6 @@ class BaseModel(models.BaseModel):
                 (self._name, self._table)
             )
 
-        modname = '__module__'
-
         cr = self.env.cr
         cr.execute(
             """
@@ -71,7 +70,7 @@ class BaseModel(models.BaseModel):
         missing = self.filtered(lambda r: r.id not in xids)
         if missing:
             xids.update(
-                (r.id, (modname, r._get_xml_record_human_name()))
+                (r.id, (MODENAME, r._get_xml_record_human_name()))
                 for r in missing
             )
             fields = ['module', 'model', 'name', 'res_id']
@@ -85,7 +84,7 @@ class BaseModel(models.BaseModel):
                     io.StringIO(
                         u'\n'.join(
                             u"%s\t%s\t%s\t%d" % (
-                                modname,
+                                MODENAME,
                                 record._name,
                                 xids[record.id][1],
                                 record.id,
