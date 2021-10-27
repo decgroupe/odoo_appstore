@@ -1,0 +1,177 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bt_document_share_public
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-27 12:25+0000\n"
+"PO-Revision-Date: 2021-10-27 12:25+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:12
+#, python-format
+msgid "Activity"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model,name:bt_document_share_public.model_ir_attachment
+msgid "Attachment"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:14
+#: model:ir.model,name:bt_document_share_public.model_attachment_link
+#: model_terms:ir.ui.view,arch_db:bt_document_share_public.attachment_link_wizard_view
+#, python-format
+msgid "Attachment Link"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model,name:bt_document_share_public.model_attachment_link_lines
+msgid "Attachment Link Lines"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.actions.act_window,name:bt_document_share_public.action_send_attachment_link
+msgid "Attachment Link Wizard"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model_terms:ir.ui.view,arch_db:bt_document_share_public.attachment_link_wizard_view
+msgid "Close"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__create_uid
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__create_date
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:12
+#, python-format
+msgid "Dates"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__display_name
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__id
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__id
+msgid "ID"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link____last_update
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__write_uid
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__write_date
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link__line_ids
+msgid "Lines"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__click_link
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__link
+#: model_terms:ir.ui.view,arch_db:bt_document_share_public.attachment_link_wizard_view
+msgid "Link"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__link_id
+msgid "Link Id"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:8
+#, python-format
+msgid "Log a note. Followers will not be notified."
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:8
+#, python-format
+msgid "Log note"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:11
+#, python-format
+msgid "Log or schedule an activity"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_attachment_link_lines__name
+msgid "Name"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model_terms:ir.ui.view,arch_db:bt_document_share_public.attachment_link_wizard_view
+msgid "New"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:12
+#, python-format
+msgid "Schedule activity"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:5
+#, python-format
+msgid "Send a message"
+msgstr ""
+
+#. module: bt_document_share_public
+#. openerp-web
+#: code:addons/bt_document_share_public/static/src/xml/attachment.xml:5
+#, python-format
+msgid "Send message"
+msgstr ""
+
+#. module: bt_document_share_public
+#: model:ir.model.fields,field_description:bt_document_share_public.field_ir_attachment__access_token
+#: model:ir.model.fields,field_description:bt_document_share_public.field_mrp_document__access_token
+msgid "Token"
+msgstr ""
+
