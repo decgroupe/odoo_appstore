@@ -4,4 +4,19 @@
         // box-shadow: 0 5px 20px -15px black;
         filter: drop-shadow(0 10px 10px #333);
     }
+
+    @include media-breakpoint-down(xs) {
+        &.o_modal_full {
+            .modal-dialog {
+
+                .modal-content {
+
+                    .modal-header {
+                        background: $o-brand-odoo;
+                    }
+
+                }
+            }
+        }
+    }
 }
