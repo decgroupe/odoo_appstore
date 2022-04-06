@@ -13,3 +13,12 @@
     }
 
 }
+
+// Overriden style when form view in modal
+.modal .modal-dialog {
+    .o_form_view {
+        .oe_chatter {
+            display: block;
+        }
+    }
+}
