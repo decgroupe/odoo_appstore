@@ -3,13 +3,21 @@
     .o_form_uri {
         text-decoration: underline;
     }
+
     .o_group {
         .o_td_label .o_form_label {
             margin-bottom: 10px;
         }
     }
+
     .o_readonly_modifier {
         font-style: oblique 6deg;
+    }
+
+    .oe_button_box {
+        .o_button_icon {
+            color: $brand-primary !important;
+        }
     }
 
 }
