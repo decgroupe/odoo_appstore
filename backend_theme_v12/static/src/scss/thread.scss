@@ -1,0 +1,51 @@
+.o_mail_thread,
+.o_mail_activity {
+    .o_thread_show_more {}
+
+    .o_mail_thread_content {}
+
+    .o_thread_bottom_free_space {}
+
+    .o_thread_typing_notification_free_space {}
+
+    .o_thread_typing_notification_bar {
+
+
+        &.o_thread_order_asc {}
+
+        &.o_thread_order_desc {}
+    }
+
+    .o_thread_tooltip_container {}
+
+    .o_thread_date_separator {
+        margin-bottom: 10px;
+    }
+
+    .o_thread_message {
+        padding: 0px 8px;
+
+        &.o_mail_not_discussion {
+            background-color: unset;
+            border-bottom: unset;
+            // background-color: rgba(gray('300'), 0.5);
+            // border-bottom: 1px solid gray('400');
+        }
+
+        &.o_mail_discussion {
+
+            .o_thread_message_content {
+
+                > div:first-child, > p:first-child {
+                    padding: 1rem !important;
+                    background-color: rgba(23, 162, 184, 0.1);
+                    border-top-right-radius: 1rem !important;
+                    border-bottom-right-radius: 1rem !important;
+                    border-bottom-left-radius: 1rem !important;
+                    border: 1px rgba(23, 162, 184, 0.2) solid;
+                }
+            }
+
+        }
+    }
+}
