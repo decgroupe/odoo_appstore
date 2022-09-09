@@ -1,26 +1,77 @@
-.o_form_view {
+.o_content {
+    .o_form_view {
 
-    @include media-breakpoint-up(xl) {
+        // @include media-breakpoint-up(xl) {
+        //     .oe_button_box {
+        //         width: 45%;
+        //     }
+        // }
+
         .oe_button_box {
-            width: 45%;
-        }
-    }
 
-    .oe_button_box {
-        .oe_stat_button {
+            float: none;
+            width: revert;
 
-            .o_stat_info,
-            >span {
-                > .o_stat_value, > .o_stat_text {
-                    font-size: smaller;
-                }
-                .o_stat_text {
-                    font-size: smaller;
-                }
+            // Revert oca/web/web_responsive/static/src/css/web_responsive.scss
+            @media (max-width: 767.98px) {
+                max-width: revert;
             }
 
-            >span {
-                font-size: smaller;
+            margin-left: -17px;
+            margin-right: -16px;
+            margin-top: -17px;
+
+            box-shadow: inset 0 -1px 0 #C9CCD2;
+
+            .oe_stat_button {
+
+                border: none;
+                margin: 0px;
+                outline-color: #ccc;
+                outline-width: 1px;
+                outline-style: solid;
+
+
+                .o_stat_info,
+                >span {
+
+                    >.o_stat_value,
+                    >.o_stat_text {
+                        font-size: smaller;
+                    }
+
+                    .o_stat_text {
+                        font-size: smaller;
+                    }
+                }
+
+                >span {
+                    font-size: smaller;
+                }
+
+                width: 50% !important;
+
+                // 576
+                @include media-breakpoint-up(sm) {
+                    width: 33.3% !important;
+                }
+
+                // 768
+                @include media-breakpoint-up(md) {
+                    width: 20% !important;
+                }
+
+                // 992
+                @include media-breakpoint-up(lg) {
+                    width: 14.28571429% !important;
+                }
+
+                // 1200
+                @include media-breakpoint-up(xl) {
+                    width: 12.5% !important;
+                }
+
+
             }
         }
     }
