@@ -1,63 +1,64 @@
+.o_form_view {
+
+    .oe_button_box {
+
+        float: none;
+        width: revert;
+
+        // Revert oca/web/web_responsive/static/src/css/web_responsive.scss
+        @media (max-width: 767.98px) {
+            max-width: revert;
+        }
+
+        margin-left: -17px;
+        margin-right: -16px;
+        margin-top: -17px;
+
+        box-shadow: inset 0 -1px 0 #C9CCD2;
+
+        .oe_stat_button {
+
+            border: none;
+            margin: 0px;
+            outline-color: #ccc;
+            outline-width: 1px;
+            outline-style: solid;
+
+            .o_button_icon {
+                color: $brand-secondary;
+                font-size: 19px;
+            }
+
+            .o_stat_info,
+            >span {
+
+                color: $brand-secondary;
+                font-size: smaller;
+                font-weight: 500;
+
+                >.o_stat_value {
+                    color: $brand-secondary;
+                }
+
+                >.o_stat_text,
+                .o_stat_text {
+                    font-size: revert;
+                }
+            }
+        }
+
+    }
+
+    .oe_chatter {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
 .o_content {
     .o_form_view {
-
-        // @include media-breakpoint-up(xl) {
-        //     .oe_button_box {
-        //         width: 45%;
-        //     }
-        // }
-
         .oe_button_box {
-
-            float: none;
-            width: revert;
-
-            // Revert oca/web/web_responsive/static/src/css/web_responsive.scss
-            @media (max-width: 767.98px) {
-                max-width: revert;
-            }
-
-            margin-left: -17px;
-            margin-right: -16px;
-            margin-top: -17px;
-
-            box-shadow: inset 0 -1px 0 #C9CCD2;
-
             .oe_stat_button {
-
-                border: none;
-                margin: 0px;
-                outline-color: #ccc;
-                outline-width: 1px;
-                outline-style: solid;
-
-                .o_button_icon {
-                    color: $brand-secondary;
-                    font-size: 19px;
-                }
-
-                .o_stat_info,
-                >span {
-
-                    >.o_stat_value {
-                        color: $brand-secondary;
-                    }  
-
-                    >.o_stat_text, .o_stat_text {
-                        color: $brand-secondary;
-                        font-size: smaller;
-                        font-weight: 500;
-                    }
-                }
-
-                >span {
-                    font-size: smaller;
-                }
-
-            }
-
-            .oe_stat_button {
-
                 width: 50% !important;
 
                 // 576
@@ -81,12 +82,17 @@
                 }
 
             }
-
         }
+    }
+}
 
-        .oe_chatter {
-            padding-left: 0px;
-            padding-right: 0px;
+// Do not use media for modal content
+.modal-content {
+    .o_form_view {
+        .oe_button_box {
+            .oe_stat_button {
+                width: 20% !important;
+            }
         }
     }
 }
