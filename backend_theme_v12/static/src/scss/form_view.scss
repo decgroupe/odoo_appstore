@@ -10,6 +10,20 @@
         }
     }
 
+    // When a list is the first item then "maximize it"
+    .tab-pane {
+        >:first-child.o_field_widget {
+            &.o_field_one2many,
+            &.o_field_many2many {
+                display: block;
+                width: auto;
+                margin-left: -16px;
+                margin-right: -16px;
+                margin-top: -17px;
+            }
+        }
+    }
+
     .o_readonly_modifier:not(.o_stat_info) {
         font-style: oblique 6deg;
     }
