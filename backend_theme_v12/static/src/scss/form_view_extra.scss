@@ -31,17 +31,22 @@
                 outline-width: 1px;
                 outline-style: solid;
 
+                .o_button_icon {
+                    color: $brand-secondary;
+                    font-size: 19px;
+                }
 
                 .o_stat_info,
                 >span {
 
-                    >.o_stat_value,
-                    >.o_stat_text {
-                        font-size: smaller;
-                    }
+                    >.o_stat_value {
+                        color: $brand-secondary;
+                    }  
 
-                    .o_stat_text {
+                    >.o_stat_text, .o_stat_text {
+                        color: $brand-secondary;
                         font-size: smaller;
+                        font-weight: 500;
                     }
                 }
 
