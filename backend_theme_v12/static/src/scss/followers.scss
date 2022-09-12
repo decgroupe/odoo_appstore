@@ -1,0 +1,17 @@
+.o_followers {
+
+    .o_followers_actions {
+
+        .o_followers_follow_button {
+
+            .o_followers_unfollow {
+                color: theme-color('warning');
+            }
+            .o_followers_following {
+                color: theme-color('success');
+            }
+        }
+
+    }
+
+}
