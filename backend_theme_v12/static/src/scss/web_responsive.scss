@@ -1,0 +1,17 @@
+// Normal views
+.o_content,
+.modal-content {
+
+    // Form views
+    .o_form_view {
+        .o_form_sheet {
+
+            .oe_button_box {
+                .o_dropdown_more {
+                    // Unset to maximize button width
+                    width: unset;
+                }
+            }
+        }
+    }
+}
