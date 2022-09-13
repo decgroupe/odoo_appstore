@@ -20,6 +20,7 @@
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/followers.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/thread.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/systray.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/section_and_note_backend.scss"/>
             <link rel="stylesheet" type="text/scss" href="/backend_theme_v12/static/src/scss/web_responsive.scss"/>
             <script type="application/javascript" src="/backend_theme_v12/static/src/js/sidebar.js"/>
             <script type="application/javascript" src="/backend_theme_v12/static/src/js/sidebar-toggle.js"/>
