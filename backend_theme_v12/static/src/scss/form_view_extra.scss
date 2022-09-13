@@ -1,5 +1,25 @@
 .o_form_view {
 
+    @media (min-width: 768px) {
+
+        // Avatar
+        .oe_avatar {
+            float: right;
+
+            >img {
+                // Medium size is 128x128
+                max-height: 128px;
+                max-width: 128px;
+                box-shadow: none;
+                border: 1px #ccc solid;
+            }
+
+            +.oe_title {
+                padding-left: revert;
+            }
+        }
+    }
+
     .oe_button_box {
 
         float: none;
