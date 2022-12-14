@@ -1,8 +1,7 @@
 odoo.define('website_animate.o_animate_frontend', function (require) {
 'use strict';
 
-var sAnimation = require('website.content.snippets.animation');
-var base = require('web_editor.base');
+var publicWidget = require('web.public.widget');
 
 var WebsiteAnimate = {
     win   : {},
@@ -46,17 +45,15 @@ var WebsiteAnimate = {
             var direction = (windowTop < lastScroll) ? -1 : 1;
             lastScroll = windowTop;
 
-            self.items.each(function () {
+            $(".o_animate").each(function () {
                 var $el       = $(this);
                 var elHeight  = $el.height();
                 var elOffset  = direction * Math.max((elHeight * self.offsetRatio), self.offsetMin);
                 var state     = $el.css("animation-play-state");
 
                 // We need to offset for the change in position from some animation
-                // So we get the top value of the transform matrix
-                var transformMatrix = $el.css('transform').replace(/[^0-9\-.,]/g, '').split(',');
-                var transformOffset = transformMatrix[13] || transformMatrix[5];
-                var elTop = $el.offset().top - transformOffset;
+                // So we get the top value by not taking CSS transforms into calculations
+                var elTop = self.getElementOffsetTop($el[0]);
 
                 var visible = windowBottom > (elTop + elOffset) && windowTop < (elTop + elHeight - elOffset);
 
@@ -88,12 +85,6 @@ var WebsiteAnimate = {
 
     // Start animation and/or update element's state
     start_animation: function ($el) {
-        // Safari/iOS workaround: perform another redraw at this specific stage to correctly trigger animations
-        // TODO: Investigate causes, normally the issue should be solved by a future 'requestAnimationFrame' implementation
-        if ($.browser.safari) {
-            $el.toggleClass('d-none').toggleClass('d-none', 1);
-        }
-
         // force the browser to redraw using setTimeout
         setTimeout(function () {
             $el
@@ -105,19 +96,53 @@ var WebsiteAnimate = {
             });
         });
     },
+
+    // Get element top offset by not taking CSS transforms into calculations
+    getElementOffsetTop: function (el) {
+        // Loop through the DOM tree and add its parent's offset to get page offset
+        var top = 0;
+        do {
+            top += el.offsetTop || 0;
+            el = el.offsetParent;
+        } while (el);
+        return top;
+    },
 };
 
-base.ready().then(function () {
-    // By default, elements are hidden by the css of o_animate.
-    // render alements  + // We will trigger the animation then pause it in state 0.
-    WebsiteAnimate.start();
-    // Then we render all the elements, the ones which are invisible
-    // in state 0 (like fade_in for example) will stay invisible.
-    $(".o_animate").css("visibility", "visible");
+publicWidget.registry.WebsiteAnimate = publicWidget.Widget.extend({
+    selector: '#wrapwrap',
+    disabledInEditableMode: false,
+
+    /**
+     * @override
+     */
+    start: function () {
+        // By default, elements are hidden by the css of o_animate.
+        // render alements  + // We will trigger the animation then pause it in state 0.
+        WebsiteAnimate.start();
+        // Then we render all the elements, the ones which are invisible
+        // in state 0 (like fade_in for example) will stay invisible.
+        $(".o_animate").css("visibility", "visible");
+
+        return this._super.apply(this, arguments);
+    },
+    /**
+     * @override
+     */
+    destroy: function () {
+        this._super.apply(this, arguments);
+        this.$target.find('.o_animate')
+            .removeClass('o_animating o_animated o_animate_preview')
+            .css({
+                'animation-name': '',
+                'animation-play-state': '',
+                'visibility': '',
+            });
+    },
 });
 
 // Backward compatibility for enark animation system
-sAnimation.registry.o_animate = sAnimation.Class.extend({
+publicWidget.registry.o_animate = publicWidget.Widget.extend({
     selector: '.o_animation',
 
     destroy: function () {
