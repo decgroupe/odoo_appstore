@@ -3,7 +3,7 @@
 
 {
     "name": "Web One2many Kanban",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "sequence": 6,
     "author": "Serpent Consulting Services Pvt. Ltd.",
