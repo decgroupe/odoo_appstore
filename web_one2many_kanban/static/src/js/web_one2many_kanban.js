@@ -8,7 +8,8 @@ odoo.define('web_one2many_kanban.web_one2many_kanban', function (require) {
     KanbanRecord.include( {
         _render: function () {
             var self = this;
-            var def =this._super.apply(this, arguments);
+            var self_super = self._super;
+            var self_super_args = arguments;
             var o2x_field_names = [];
             _.each(this.fieldsInfo, function (field_info, field_nm) {
                 if (field_info.mode === 'list' || field_info.mode === 'kanban')
@@ -27,7 +28,7 @@ odoo.define('web_one2many_kanban.web_one2many_kanban', function (require) {
                         o2x_recordData.push(self.recordData[o2x_field_name])
                     }
                 });
-                def = ajax.jsonRpc(
+                var def = ajax.jsonRpc(
                     "/web/fetch_x2m_data",
                     "call",
                     {'o2x_records': o2x_records, 'o2x_record_data': o2x_recordData}).then(function (o2x_datas) {
@@ -35,24 +36,13 @@ odoo.define('web_one2many_kanban.web_one2many_kanban', function (require) {
                         o2x_records[i].raw_value = o2x_datas[i];
                     }
                 });
+                return def.then(function () {
+                    self_super.apply(self, self_super_args);
+                });
+            } else {
+                return self._super.apply(self, arguments);
             }
-            return def.then(function () {
-                self._replaceElement(self.qweb.render('kanban-box',
-                    self.qweb_context));
-                self.$el.addClass('o_kanban_record');
-                self.$el.data('record', self);
-                if (self.$el.hasClass('oe_kanban_global_click') ||
-                    self.$el.hasClass('oe_kanban_global_click_edit')) {
-                    self.$el.on('click', self._onGlobalClick.bind(self));
-                }
-                self._processFields();
-                self._processWidgets();
-                self._setupColor();
-                self._setupColorPicker();
-                self._attachTooltip();
-                //  We use boostrap tooltips for better and faster display
-                self.$('span.o_tag').tooltip({delay: {'show': 50}});
-            });
+
         },
     });
 });
