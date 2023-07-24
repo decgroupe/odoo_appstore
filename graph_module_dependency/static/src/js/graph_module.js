@@ -5,6 +5,7 @@ odoo.define('graph_module_dependency.graph', function (require) {
     var core = require('web.core');
     var rpc = require('web.rpc');
     var QWeb = core.qweb;
+    var _t = core._t;
 
     var STATE_COLOR = {
         'uninstallable': '#eaeaa4',
@@ -50,10 +51,10 @@ odoo.define('graph_module_dependency.graph', function (require) {
                 order: 'shortdesc'
             }).then(function (data) {
                 data.forEach(function (node) {
-                    self.nodes.push({'id': node.id, 'label': node.name, 'state': node.state, 'shortdesc': node.shortdesc});
+                    self.nodes.push({ 'id': node.id, 'label': node.name, 'state': node.state, 'shortdesc': node.shortdesc });
                 });
 
-                self.$el.html(QWeb.render("ModuleGraph", {widget: self}));
+                self.$el.html(QWeb.render("ModuleGraph", { widget: self }));
                 var container = self.$('.module_graph').get()[0];
                 self.network = new vis.Network(container, self.graph_data, self.graph_options);
 
@@ -76,6 +77,18 @@ odoo.define('graph_module_dependency.graph', function (require) {
                 });
             });
             return this._super.apply(this, arguments);
+        },
+
+        getTitle: function () {
+            return _t('Module Graph');
+        },
+
+        getState: function () {
+            return {};
+        },
+
+        canBeRemoved: function () {
+            return Promise.resolve();
         },
 
         _onInputKeyup: function () {
@@ -121,7 +134,7 @@ odoo.define('graph_module_dependency.graph', function (require) {
                     var edges = [];
                     data['nodes'].forEach(function (node) {
                         if (node['id']) {
-                            nodes.push({'id': node['id'], 'label': node['label'], 'color': {'background': STATE_COLOR[node['state']], 'state': node['state']}});
+                            nodes.push({ 'id': node['id'], 'label': node['label'], 'color': { 'background': STATE_COLOR[node['state']], 'state': node['state'] } });
                             self.$(`li[data-id="${node['id']}"]`).addClass('module_selected');
                         }
                     });
@@ -129,9 +142,9 @@ odoo.define('graph_module_dependency.graph', function (require) {
 
                     data['edges'].forEach(function (edge) {
                         if (self.edges.filter(e => e.from === edge['from'] && e.to === edge['to']).length === 0) {
-                            var new_edge = {'from': edge['from'], 'to': edge['to']};
+                            var new_edge = { 'from': edge['from'], 'to': edge['to'] };
                             if (edge['type'] === 'exclusion') {
-                                new_edge['color'] = {'color': 'red', 'highlight': 'red'}
+                                new_edge['color'] = { 'color': 'red', 'highlight': 'red' }
                             }
                             self.edges.push(new_edge);
                             edges.push(new_edge);
